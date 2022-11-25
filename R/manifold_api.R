@@ -2,25 +2,35 @@
 #'
 #' Interact with the Manifold Markets API
 #'
-#' @param path One of the endpoints listed at https://docs.manifold.markets/api#get-v0users
+#' @param path One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)
 #' @param key Optional: provide API key
+#' @param params_list Optional: provide a list of parameters names and values (see doc for syntax)
 #' @return A JSON object
 #' @export
 #' @examples
 #' manifold_api("/v0/user/ManifoldMarkets")
 #' manifold_api("/v0/me", key = manifold_api_key())
+#' manifold_api(path = "/v0/markets", params_list = list("limit" = "10", "before" = "EvIhzcJXwhL0HavaszD7"))
 
-manifold_api <- function(path, key = NULL) {
+manifold_api <- function(path, key = NULL, params_list = NULL) {
 
   # url <- modify_url("https://manifold.markets/api/", path = path)
-  url <- paste0("https://manifold.markets/api/", path)
+  url <- paste0("https://manifold.markets/api", path)
 
   # Authenticate if key provided
   if(!is.null(key)){
-    resp <- httr::GET(
-      url, ua,
-      httr::add_headers(Authorization = paste0("Key ", key))
-    )
+    resp <-
+      httr::GET(
+        url, ua,
+        httr::add_headers(Authorization = paste0("Key ", key))
+      )
+    # Pass parameters
+  } else if(!is.null(params_list)) {
+    resp <-
+      do.call(
+        httr::GET,
+        list(url, ua, query = params_list)
+      )
   } else{
     resp <- httr::GET(url, ua)
   }
