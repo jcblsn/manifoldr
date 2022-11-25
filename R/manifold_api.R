@@ -9,12 +9,11 @@
 #' @export
 #' @examples
 #' manifold_api("/v0/user/ManifoldMarkets")
-#' manifold_api("/v0/me", key = manifold_api_key())
+#' manifold_api("/v0/me", key = get_manifold_api_key())
 #' manifold_api(path = "/v0/markets", params_list = list("limit" = "10", "before" = "EvIhzcJXwhL0HavaszD7"))
 
 manifold_api <- function(path, key = NULL, params_list = NULL) {
 
-  # url <- modify_url("https://manifold.markets/api/", path = path)
   url <- paste0("https://manifold.markets/api", path)
 
   # Authenticate if key provided
