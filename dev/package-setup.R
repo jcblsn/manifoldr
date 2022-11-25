@@ -14,7 +14,7 @@ unlink("DESCRIPTION")
 my_desc <- description$new("!new")
 
 # Set your package name
-my_desc$set("ManifoldR", "manifoldr")
+my_desc$set("Package", "manifoldr")
 
 #Set your name
 my_desc$set("Authors@R", "person('Jacob', 'Eliason', email = 'jacobeliason@gmail.com', role = c('cre', 'aut'))")

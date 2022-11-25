@@ -1,3 +1,3 @@
-# {{ Package }} 1.0.0
+# manifoldr 0.0.0
 
-* Pushing a minimum viable version of the package.
+* Pushing minimum viable version
