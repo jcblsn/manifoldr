@@ -1,17 +1,11 @@
 Package: manifoldr
 Title: Manifold Markets API Wrapper
 Version: 0.0.0
-Authors@R: 
-    person("Jacob", "Eliason", , "jacobeliason@gmail.com", role = c("cre", "aut"))
-Description: The R package `manifoldr` is an API wrapper for the
-    prediction market platform "Manifold Markets." It allows R users to
-    more easily access the Manifold Markets API to create markets, place
-    bets on existing markets, and more.
-License: MIT + file LICENSE
+Authors@R: person('Jacob', 'Eliason', email = 'jacobeliason@gmail.com', role = c('cre', 'aut'))
+Description: The R package `manifoldr` is an API wrapper for the prediction market platform "Manifold Markets." It allows R users to more easily access the Manifold Markets API to create markets, place bets on existing markets, and more.
+License: {{ License }}
 URL: https://github.com/eliason-j/manifoldr
 BugReports: https://github.com/eliason-j/manifoldr/issues
-Imports: 
-    curl,
-    httr,
-    jsonlite
 Encoding: UTF-8
+Imports: 
+    manifoldr
