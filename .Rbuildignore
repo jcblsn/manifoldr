@@ -1,6 +1,5 @@
-^manifoldr\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
 ^LICENSE\.md$
 ^CODE_OF_CONDUCT\.md$
-^README\.Rmd$
-^data-raw$
