@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_manifold_api_key.R
 \name{get_manifold_api_key}
 \alias{get_manifold_api_key}
-\title{Reference your Manifold Markets API Key}
+\title{Storing and referencing your Manifold Markets API Key}
 \usage{
 get_manifold_api_key()
 }
@@ -10,7 +10,7 @@ get_manifold_api_key()
 API key as string
 }
 \description{
-Reference your Manifold Markets API Key after it's been stored as a system environment variable.
+Storing and referencing your Manifold Markets API Key
 }
 \examples{
 manifold_api_key()

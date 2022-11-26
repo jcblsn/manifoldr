@@ -2,41 +2,52 @@
 #'
 #' Interact with the Manifold Markets API
 #'
-#' @param path One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)
-#' @param key Optional: provide API key
-#' @param params_list Optional: provide a list of parameters names and values (see doc for syntax)
+#' @param endpoint One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)
+#' @param request_type Must be one of "GET" or "POST" per endpoint documentation
+#' @param key API key (see documentation for which endpoints require authentication)
+#' @param params_list A list of parameter names and values (see documentation for syntax)
 #' @return A JSON object
 #' @export
 #' @examples
 #' manifold_api("/v0/user/ManifoldMarkets")
 #' manifold_api("/v0/me", key = get_manifold_api_key())
-#' manifold_api(path = "/v0/markets", params_list = list("limit" = "10", "before" = "EvIhzcJXwhL0HavaszD7"))
+#' manifold_api(endpoint = "/v0/markets", params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7"))
 
-manifold_api <- function(path, key = NULL, params_list = NULL) {
+manifold_api <- function(endpoint, request_type = c("GET", "POST"), key = NULL, params_list = NULL) {
 
-  url <- paste0("https://manifold.markets/api", path)
+  url <- paste0("https://manifold.markets/api", endpoint)
 
-  # Authenticate if key provided
-  if(!is.null(key)){
-    resp <-
-      httr::GET(
-        url, ua,
-        httr::add_headers(Authorization = paste0("Key ", key))
-      )
-    # Pass parameters
-  } else if(!is.null(params_list)) {
-    resp <-
-      do.call(
-        httr::GET,
-        list(url, ua, query = params_list)
-      )
-  } else{
-    resp <- httr::GET(url, ua)
+  match.arg(request_type)
+
+  if(request_type == "GET"){
+    request_args <- list(
+      url,
+      ua,
+      httr::add_headers(Authorization = paste0("Key ", key)),
+      query = params_list
+    )
+    request_args <- request_args[lengths(request_args) != 0] # remove null elements
+    resp <- do.call(httr::GET, request_args)
+  } else if(request_type == "POST") {
+
+    if(!is.null(params_list)){
+      params_list <- jsonlite::toJSON(params_list, auto_unbox = TRUE)
+    }
+    request_args <- list(
+      url,
+      ua,
+      httr::add_headers(Authorization = paste0("Key ", key),
+                        "Content-Type" = "application/json"),
+      body = params_list
+    )
+    request_args <- request_args[lengths(request_args) != 0] # remove null elements
+    resp <- do.call(httr::POST, request_args)
   }
 
   if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)
   }
+
   parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
 
   # Format error message
@@ -47,7 +58,7 @@ manifold_api <- function(path, key = NULL, params_list = NULL) {
         httr::status_code(resp),"\n",
         parsed$message,
         parsed$documentation_url,"\n",
-        "Please provide API key using manifold_api(key = manifold_api_key())"
+        "Please provide API key directly or using manifold_api(key = get_manifold_api_key())"
       ),
       call. = F
     )
@@ -66,7 +77,7 @@ manifold_api <- function(path, key = NULL, params_list = NULL) {
   structure(
     list(
       content = parsed,
-      path = path,
+      path = endpoint,
       response = resp
     ),
     class = "manifold_api"

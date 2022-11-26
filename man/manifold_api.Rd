@@ -4,14 +4,21 @@
 \alias{manifold_api}
 \title{Manifold API}
 \usage{
-manifold_api(path, key = NULL, params_list = NULL)
+manifold_api(
+  endpoint,
+  request_type = c("GET", "POST"),
+  key = NULL,
+  params_list = NULL
+)
 }
 \arguments{
-\item{path}{One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)}
+\item{endpoint}{One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)}
 
-\item{key}{Optional: provide API key}
+\item{request_type}{Must be one of "GET" or "POST" per endpoint documentation}
 
-\item{params_list}{Optional: provide a list of parameters names and values (see doc for syntax)}
+\item{key}{API key (see documentation for which endpoints require authentication)}
+
+\item{params_list}{A list of parameter names and values (see documentation for syntax)}
 }
 \value{
 A JSON object
@@ -21,6 +28,6 @@ Interact with the Manifold Markets API
 }
 \examples{
 manifold_api("/v0/user/ManifoldMarkets")
-manifold_api("/v0/me", key = manifold_api_key())
-manifold_api(path = "/v0/markets", params_list = list("limit" = "10", "before" = "EvIhzcJXwhL0HavaszD7"))
+manifold_api("/v0/me", key = get_manifold_api_key())
+manifold_api(endpoint = "/v0/markets", params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7"))
 }

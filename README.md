@@ -10,9 +10,11 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 <!-- badges: end -->
 
-The goal of `manifoldr` is to streamline interactions between a user and
-the Manifold Markets API. The package is currently incomplete and under
-development. Some endpoints are not currently supported.
+The goal of `manifoldr` is to streamline interactions between R users
+and the [Manifold Markets](https://manifold.markets/home)
+[API](https://docs.manifold.markets/api). The package is currently
+incomplete and under development. Some endpoints are not currently
+supported.
 
 <!-- https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
 
