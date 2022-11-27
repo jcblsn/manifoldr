@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Codecov test
 coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jcblsn/manifoldr?branch=main)
 
@@ -43,69 +43,20 @@ Users can reference the core function `manifold_api()` with any endpoint
 using the instructions given in the documentation.
 
 ``` r
-resp <- manifoldr::manifold_api(
+manifoldr::manifold_api(
   endpoint = "/v0/user/ManifoldMarkets", 
   request_type = "GET"
 )
-resp$content
-#> $id
-#> [1] "IPTOzEqrpkWmEzh6hwvAyY9PqFb2"
-#> 
-#> $createdTime
-#> [1] 1.639534e+12
-#> 
-#> $name
-#> [1] "Manifold Markets"
-#> 
-#> $username
-#> [1] "ManifoldMarkets"
-#> 
-#> $url
-#> [1] "https://manifold.markets/ManifoldMarkets"
-#> 
-#> $avatarUrl
-#> [1] "https://firebasestorage.googleapis.com/v0/b/mantic-markets.appspot.com/o/user-images%2FManifoldMarkets%2F97s_Lcavdy.png?alt=media&token=7ac882d7-6626-4934-95c9-cd9df8f7e205"
-#> 
-#> $bio
-#> [1] "The OFFICIAL Manifold Markets account!\nWe sometimes make important markets here, but right now it mostly acts as a bank for manalinks and other payments."
-#> 
-#> $website
-#> [1] "https://manifold.markets"
-#> 
-#> $twitterHandle
-#> [1] "ManifoldMarkets"
-#> 
-#> $discordHandle
-#> [1] "https://discord.gg/VARzUpyCSa"
-#> 
-#> $balance
-#> [1] 5259765
-#> 
-#> $totalDeposits
-#> [1] 5261328
-#> 
-#> $profitCached
-#> $profitCached$weekly
-#> [1] 32.32816
-#> 
-#> $profitCached$monthly
-#> [1] 15263.39
-#> 
-#> $profitCached$allTime
-#> [1] -4195.25
-#> 
-#> $profitCached$daily
-#> [1] -63.0986
 ```
 
-A number of convenience functions are also provided, including
+A number of convenience functions are also provided. These include
+functions for specific endpoints and others such as
 `clean_manifold_content()`, which returns output as a data frame with
 clean variable names.
 
 ``` r
 manifoldr::get_markets(n_markets = 3) |> 
-  manifoldr::clean_manifold_content() |> 
-  knitr::kable()
+  manifoldr::clean_manifold_content()
 ```
 
 ## Code of Conduct

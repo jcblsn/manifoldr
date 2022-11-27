@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![Codecov test coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jcblsn/manifoldr?branch=main)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![Codecov test coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jcblsn/manifoldr?branch=main)
 
 <!-- badges: end -->
 
@@ -44,20 +44,18 @@ devtools::install_github("jcblsn/manifoldr")
 
 Users can reference the core function `manifold_api()` with any endpoint using the instructions given in the documentation.
 
-```{r}
-resp <- manifoldr::manifold_api(
+```{r, eval = F}
+manifoldr::manifold_api(
   endpoint = "/v0/user/ManifoldMarkets", 
   request_type = "GET"
 )
-resp$content
 ```
 
-A number of convenience functions are also provided, including `clean_manifold_content()`, which returns output as a data frame with clean variable names.
+A number of convenience functions are also provided. These include functions for specific endpoints and others such as `clean_manifold_content()`, which returns output as a data frame with clean variable names.
 
 ```{r, eval = F}
 manifoldr::get_markets(n_markets = 3) |> 
-  manifoldr::clean_manifold_content() |> 
-  knitr::kable()
+  manifoldr::clean_manifold_content()
 ```
 
 ## Code of Conduct

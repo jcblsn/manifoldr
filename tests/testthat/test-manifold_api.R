@@ -128,24 +128,24 @@ testthat::test_that("GET /v0/users works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("POST /v0/market works", {
-  resp <- manifold_api(
-    endpoint = "/v0/market",
-    request_type = "POST",
-    key = MANIFOLDR_USER_API_KEY,
-    params_list = list(
-      outcomeType = "BINARY",
-      question = "Will the manifoldr package functions work correctly?",
-      descriptionMarkdown = "This market exists to test the package functions for [manifoldr](https://github.com/jcblsn/manifoldr). For testing purposes only.",
-      closeTime = 1679558804490,
-      visibility = "unlisted",
-      groupId = "gPyUYrZXv9YfceerIphj",
-      initialProb = 50
-    )
-  )
-  expect_s3_class(resp, class = "manifold_api")
-  expect_equal(resp$response$status_code, 200)
-})
+# testthat::test_that("POST /v0/market works", {
+#   resp <- manifold_api(
+#     endpoint = "/v0/market",
+#     request_type = "POST",
+#     key = MANIFOLDR_USER_API_KEY,
+#     params_list = list(
+#       outcomeType = "BINARY",
+#       question = "Will the manifoldr package functions work correctly?",
+#       descriptionMarkdown = "This market exists to test the package functions for [manifoldr](https://github.com/jcblsn/manifoldr). For testing purposes only.",
+#       closeTime = 1679558804490,
+#       visibility = "unlisted",
+#       groupId = "gPyUYrZXv9YfceerIphj",
+#       initialProb = 50
+#     )
+#   )
+#   expect_s3_class(resp, class = "manifold_api")
+#   expect_equal(resp$response$status_code, 200)
+# })
 # passed 2022-11-27
 # id 44Q7XDgbrDR2CyD2d41d
 # slug will-the-manifoldr-package-function
@@ -195,26 +195,26 @@ testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
 #   expect_equal(resp$response$status_code, 200)
 # })
 
-testthat::test_that("POST /v0/market/[marketId]/resolve works", {
-  manifoldr_group_markets <- manifold_api(
-    endpoint = "/v0/group/by-id/gPyUYrZXv9YfceerIphj/markets",
-    request_type = "GET"
-  )$content |> clean_manifold_content()
-
-  market_id <-
-    manifoldr_group_markets[manifoldr_group_markets$created_time == max(manifoldr_group_markets$created_time),]$id
-
-  resp <- manifold_api(
-    endpoint = paste0("/v0/market/",market_id,"/resolve"),
-    request_type = "POST",
-    key = MANIFOLDR_USER_API_KEY,
-    params_list = list(
-      outcome = "CANCEL"
-    )
-  )
-  expect_s3_class(resp, class = "manifold_api")
-  expect_equal(resp$response$status_code, 200)
-})
+# testthat::test_that("POST /v0/market/[marketId]/resolve works", {
+#   manifoldr_group_markets <- manifold_api(
+#     endpoint = "/v0/group/by-id/gPyUYrZXv9YfceerIphj/markets",
+#     request_type = "GET"
+#   )$content |> clean_manifold_content()
+#
+#   market_id <-
+#     manifoldr_group_markets[manifoldr_group_markets$created_time == max(manifoldr_group_markets$created_time),]$id
+#
+#   resp <- manifold_api(
+#     endpoint = paste0("/v0/market/",market_id,"/resolve"),
+#     request_type = "POST",
+#     key = MANIFOLDR_USER_API_KEY,
+#     params_list = list(
+#       outcome = "CANCEL"
+#     )
+#   )
+#   expect_s3_class(resp, class = "manifold_api")
+#   expect_equal(resp$response$status_code, 200)
+# })
 
 testthat::test_that("POST /v0/market/[marketId]/sell works", {
   resp <- manifold_api(
