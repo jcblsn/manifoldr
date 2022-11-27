@@ -62,7 +62,7 @@ clean_manifold_content <- function(input){
       function(x) stringr::str_sub(x, 1, 10) |> as.numeric() |> lubridate::as_datetime()
     ) |>
     dplyr::mutate_at(
-      dplyr::vars(all_of(num_cols)), as.numeric
+      dplyr::vars(any_of(num_cols)), as.numeric
     )
 
   return(out)
