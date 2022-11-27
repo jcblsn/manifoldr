@@ -5,7 +5,7 @@
 #' @param input The result from manifold_api() or other
 #' @return A data frame
 #' @examples
-#' clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets"))
+#' clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets", request_type = "GET"))
 #' @importFrom purrr map_dfr pluck
 #' @importFrom janitor clean_names
 #' @export

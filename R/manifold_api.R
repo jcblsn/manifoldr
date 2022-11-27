@@ -8,10 +8,21 @@
 #' @param params_list A list of parameter names and values (see documentation for syntax)
 #' @return A JSON object
 #' @examples
-#' manifold_api("/v0/user/ManifoldMarkets", request_type = "GET")
-#' manifold_api("/v0/me", key = get_manifold_api_key(), request_type = "GET")
-#' manifold_api(endpoint = "/v0/markets", params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7"))
-#' @import httr
+#' manifold_api(
+#'   endpoint = "/v0/user/ManifoldMarkets",
+#'   request_type = "GET"
+#' )
+#' manifold_api(
+#'   endpoint = "/v0/me",
+#'   key = get_manifold_api_key(),
+#'   request_type = "GET"
+#' )
+#' manifold_api(
+#'   endpoint = "/v0/markets",
+#'   request_type = "GET",
+#'   params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7")
+#' )
+#' @import httr httr2
 #' @importFrom jsonlite fromJSON
 #' @export
 

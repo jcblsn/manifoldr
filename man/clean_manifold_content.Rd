@@ -16,5 +16,5 @@ A data frame
 An optional convenience function to format results from the Manifold API
 }
 \examples{
-clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets"))
+clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets", request_type = "GET"))
 }
