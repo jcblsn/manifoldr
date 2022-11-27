@@ -27,7 +27,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      HTTR2_KEY: ${{ secrets.MANIFOLDR_PACKAGE_KEY }}
+      MANIFOLDR_PACKAGE_KEY: ${{ secrets.MANIFOLDR_PACKAGE_KEY }}
 
     steps:
       - uses: actions/checkout@v3
