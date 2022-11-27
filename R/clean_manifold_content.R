@@ -17,4 +17,3 @@ clean_manifold_content <- function(input){
   ) |>
     janitor::clean_names()
 }
-

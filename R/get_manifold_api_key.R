@@ -3,7 +3,7 @@
 #' @return API key as string
 #' @export
 #' @examples
-#' manifold_api_key()
+#' get_manifold_api_key()
 
 get_manifold_api_key <- function() {
   pat <- Sys.getenv('MANIFOLD_API_KEY')

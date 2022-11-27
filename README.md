@@ -16,8 +16,13 @@ and the [Manifold Markets](https://manifold.markets/home)
 [API](https://docs.manifold.markets/api). The package is currently
 incomplete and under development.
 
-<!-- https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
+<!-- apis in r https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
 <!-- secret management https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management -->
+<!-- codecov https://github.com/marketplace/actions/codecov -->
+<!-- testing https://r-pkgs.org/testing-basics.html -->
+<!-- create new test with usethis::use_test("get_manifold_api_key.R") -->
+<!-- add package to DESCRIPTION (still need to specify @import where relevant for it to be included in NAMESPACE) after roxygen2::roxygenize() devtools::use_package('tibble') -->
+<!-- run all tests locally testthat::test_local() -->
 
 ## Installation
 

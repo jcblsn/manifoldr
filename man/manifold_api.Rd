@@ -27,7 +27,7 @@ A JSON object
 Interact with the Manifold Markets API
 }
 \examples{
-manifold_api("/v0/user/ManifoldMarkets")
-manifold_api("/v0/me", key = get_manifold_api_key())
+manifold_api("/v0/user/ManifoldMarkets", request_type = "GET")
+manifold_api("/v0/me", key = get_manifold_api_key(), request_type = "GET")
 manifold_api(endpoint = "/v0/markets", params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7"))
 }

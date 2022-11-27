@@ -13,5 +13,5 @@ API key as string
 Storing and referencing your Manifold Markets API Key
 }
 \examples{
-manifold_api_key()
+get_manifold_api_key()
 }
