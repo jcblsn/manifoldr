@@ -1,18 +1,6 @@
 secret_scrambled <- "mngT0rXXiwoF2RhqXZmlgcGn778wfF5ne-0SwoXUO7Q4G8uJHOnYM7s0io0h9sFB5VwHig"
 MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PACKAGE_KEY")
 
-# manifold_api ------------------------------------------------------------
-
-testthat::test_that("request type check works", {
-  testthat::expect_error(manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GFT"))
-})
-
-testthat::test_that("print method works", {
-  resp <- manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GET")
-  resp
-  expect_no_error(resp)
-})
-
 # endpoints ---------------------------------------------------------------
 
 testthat::test_that("GET /v0/user/[username] works", {
@@ -267,3 +255,16 @@ testthat::test_that("GET /v0/bets works", {
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
+
+# manifold_api ------------------------------------------------------------
+
+testthat::test_that("request type check works", {
+  testthat::expect_error(manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GFT"))
+})
+
+testthat::test_that("print method works", {
+  resp <- manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GET")
+  resp
+  expect_no_error(resp)
+})
+
