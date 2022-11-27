@@ -13,7 +13,7 @@ clean_manifold_content(input)
 A data frame
 }
 \description{
-An optional helper function to clean up the result from the Manifold API
+An optional convenience function to format results from the Manifold API
 }
 \examples{
 clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets"))

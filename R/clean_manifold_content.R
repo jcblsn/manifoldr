@@ -1,6 +1,6 @@
 #' Convert API response to a data frame
 #'
-#' An optional helper function to clean up the result from the Manifold API
+#' An optional convenience function to format results from the Manifold API
 #'
 #' @param input The result from manifold_api() or other
 #' @return A data frame
@@ -11,9 +11,15 @@
 #' @export
 
 clean_manifold_content <- function(input){
+
+  if (class(input) == "manifold_api") {
+    stop("Function input should be Manifold API object.", call. = FALSE)
+  }
+
   out <- purrr::map_dfr(
-    input,
+    input$content,
     function(x) x %>% purrr::pluck() |> unlist() |> t() |> data.frame()
   ) |>
     janitor::clean_names()
+  return(out)
 }

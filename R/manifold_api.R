@@ -18,8 +18,12 @@
 manifold_api <- function(endpoint, request_type = c("GET", "POST"), key = NULL, params_list = NULL) {
 
   url <- paste0("https://manifold.markets/api", endpoint)
-
   match.arg(request_type)
+
+  # fix empty parameter list
+  if(length(params_list)==0){
+    params_list <- NULL
+  }
 
   if(request_type == "GET"){
     request_args <- list(
