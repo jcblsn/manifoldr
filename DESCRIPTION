@@ -8,11 +8,11 @@ URL: https://github.com/eliason-j/manifoldr
 BugReports: https://github.com/eliason-j/manifoldr/issues
 Encoding: UTF-8
 Imports: 
-    curl,
     httr,
     jsonlite,
     purrr,
-    janitor
+    janitor,
+    httr2
 RoxygenNote: 7.2.1
 Suggests: 
     covr,

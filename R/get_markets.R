@@ -11,11 +11,19 @@
 get_markets <- function(n_markets = 100){
   maximum_n_return <- 1000 # per API docs
   if(n_markets<=maximum_n_return){
-    markets <- manifold_api(path = "/v0/markets", params_list = list("limit" = n_markets))
+    markets <- manifold_api(
+      path = "/v0/markets",
+      request_type = "GET",
+      params_list = list("limit" = n_markets)
+    )
   } else if (n_markets > maximum_n_return) {
 
     retrieved_markets <- 0
-    markets <- manifold_api(path = "/v0/markets", params_list = list("limit" = "1000"))
+    markets <- manifold_api(
+      path = "/v0/markets",
+      request_type = "GET",
+      params_list = list("limit" = "1000")
+    )
     markets$response <- list(markets$response)
     before_id = out$content[[length(out$content)]]$id
     retrieved_markets <- retrieved_markets+length(out$content)
