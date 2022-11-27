@@ -7,13 +7,13 @@
 clean_manifold_content(input)
 }
 \arguments{
-\item{input}{The result from manifold_api() or other}
+\item{input}{Output from manifold_api() or other convenience function. Output from queries regarding groups, comments, or bets are not currently compatible with this function.}
 }
 \value{
-A data frame
+A tibble
 }
 \description{
-An optional convenience function to format results from the Manifold API
+An optional convenience function to format certain results from the Manifold API
 }
 \examples{
 clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets", request_type = "GET"))

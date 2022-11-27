@@ -187,7 +187,7 @@ testthat::test_that("POST /vX/market/[marketId]/add-liquidity works", {
 #   manifoldr_group_markets <- manifold_api(
 #     endpoint = paste0("/",v,"/group/by-id/gPyUYrZXv9YfceerIphj/markets"),
 #     request_type = "GET"
-#   )$content |> clean_manifold_content()
+#   ) |> clean_manifold_content()
 #
 #   market_id <-
 #     manifoldr_group_markets[manifoldr_group_markets$created_time == max(manifoldr_group_markets$created_time),]$id
@@ -218,19 +218,19 @@ testthat::test_that("POST /vX/market/[marketId]/sell works", {
 })
 # passed 2022-11-27
 
-testthat::test_that("POST /vX/comment works", {
-  resp <- manifold_api(
-    endpoint = paste0("/",v,"/comment"),
-    request_type = "POST",
-    key = MANIFOLDR_USER_API_KEY,
-    params_list = list(
-      contractId = "44Q7XDgbrDR2CyD2d41d",
-      markdown = "*Testing comment functionality.*"
-    )
-  )
-  expect_s3_class(resp, class = "manifold_api")
-  expect_equal(resp$response$status_code, 200)
-})
+# testthat::test_that("POST /vX/comment works", {
+#   resp <- manifold_api(
+#     endpoint = paste0("/",v,"/comment"),
+#     request_type = "POST",
+#     key = MANIFOLDR_USER_API_KEY,
+#     params_list = list(
+#       contractId = "44Q7XDgbrDR2CyD2d41d",
+#       markdown = "*Testing comment functionality.*"
+#     )
+#   )
+#   expect_s3_class(resp, class = "manifold_api")
+#   expect_equal(resp$response$status_code, 200)
+# })
 
 testthat::test_that("GET /vX/comments works", {
   resp <- manifold_api(
