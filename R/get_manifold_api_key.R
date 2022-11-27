@@ -4,8 +4,6 @@
 #' `r lifecycle::badge("stable")`
 #'
 #' @return API key as string
-#' @examples
-#' get_manifold_api_key()
 #' @export
 
 get_manifold_api_key <- function() {
