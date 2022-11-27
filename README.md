@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # manifoldr
@@ -5,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+experimental](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Codecov test
 coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jcblsn/manifoldr?branch=main)
 
@@ -36,6 +37,24 @@ You can install the development version of `manifoldr` from
 devtools::install_github("jcblsn/manifoldr")
 ```
 
+## Authentication
+
+Some endpoints require authentication. The following instructions are
+provided in the API documentation:
+
+> Each account may have zero or one API keys. To generate an API key for
+> your account, visit your user profile, click “edit”, and click the
+> “refresh” button next to the API key field at the bottom. You can
+> click it again any time to invalidate your existing key and generate a
+> new one.
+
+Suggested use for this package is to add an API key associated with a
+Manifold user account as an environment variable `MANIFOLD_API_KEY` to
+`.Rprofile` (using `usethis::edit_r_environ()` or similar). The key can
+then be safely retrieved by package functions using
+`manifoldr::get_manifold_api_key()` which calls
+`Sys.getenv("MANIFOLD_API_KEY")`.
+
 ## Examples
 
 Users can reference the core function `manifold_api()` with any endpoint
@@ -50,8 +69,8 @@ manifoldr::manifold_api(
 
 A number of convenience functions are also provided. These include
 functions for specific endpoints and others such as
-`clean_manifold_content()`, which returns output as a data frame with
-clean variable names.
+`clean_manifold_content()`, which will return some output as a data
+frame with clean variable names.
 
 ``` r
 manifoldr::get_markets(n_markets = 3) |> 

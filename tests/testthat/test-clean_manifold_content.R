@@ -1,7 +1,4 @@
 
-secret_scrambled <- "mngT0rXXiwoF2RhqXZmlgcGn778wfF5ne-0SwoXUO7Q4G8uJHOnYM7s0io0h9sFB5VwHig"
-MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PACKAGE_KEY")
-
 # c("id", "created_time", "name", "username","url", "avatar_url", "bio", "website",
 #   "twitter_handle", "discord_handle", "balance", "total_deposits","profit_cached_all_time",
 #   "profit_cached_daily", "profit_cached_monthly", "profit_cached_weekly")
@@ -119,4 +116,8 @@ testthat::test_that("GET /vX/bets returns tibble", {
       contractId = "44Q7XDgbrDR2CyD2d41d"
     )
   ) |> clean_manifold_content(), regexp = "Group, comment, and bet data should not")
+})
+
+testthat::test_that("class error works", {
+  expect_error(manifold_api(endpoint = paste0("/",v,"/user/ManifoldMarkets"), request_type = "GET")$content |> clean_manifold_content(), regexp = "Function input should")
 })

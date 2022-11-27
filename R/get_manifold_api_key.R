@@ -4,9 +4,9 @@
 #' `r lifecycle::badge("stable")`
 #'
 #' @return API key as string
-#' @export
 #' @examples
 #' get_manifold_api_key()
+#' @export
 
 get_manifold_api_key <- function() {
   pat <- Sys.getenv('MANIFOLD_API_KEY')
