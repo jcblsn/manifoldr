@@ -16,11 +16,6 @@
 #'   request_type = "GET"
 #' )
 #' manifold_api(
-#'   endpoint = "/v0/me",
-#'   key = get_manifold_api_key(),
-#'   request_type = "GET"
-#' )
-#' manifold_api(
 #'   endpoint = "/v0/markets",
 #'   request_type = "GET",
 #'   params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7")

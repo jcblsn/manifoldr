@@ -8,7 +8,7 @@
 #' @param n_markets Number of markets to retrieve
 #' @return A JSON object
 #' @examples
-#' get_markets(2500)
+#' get_markets(5)
 #' @export
 
 get_markets <- function(n_markets = 100){

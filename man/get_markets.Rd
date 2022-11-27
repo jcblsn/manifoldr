@@ -18,5 +18,5 @@ A JSON object
 Retrieve recent markets from most to least recent.
 }
 \examples{
-get_markets(2500)
+get_markets(5)
 }
