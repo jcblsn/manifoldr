@@ -7,7 +7,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-
+[![Codecov test
+coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jcblsn/manifoldr?branch=main)
 <!-- badges: end -->
 
 The goal of `manifoldr` is to streamline interactions between R users
@@ -16,6 +17,7 @@ and the [Manifold Markets](https://manifold.markets/home)
 incomplete and under development.
 
 <!-- https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
+<!-- secret management https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management -->
 
 ## Installation
 
@@ -24,7 +26,7 @@ You can install the development version of `manifoldr` from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("eliason-j/manifoldr")
+devtools::install_github("jcblsn/manifoldr")
 ```
 
 ## Code of Conduct

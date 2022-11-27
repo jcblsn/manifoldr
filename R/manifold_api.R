@@ -1,17 +1,19 @@
 #' Manifold API
 #'
-#' Interact with the Manifold Markets API
+#' @description Interact with the Manifold Markets API
 #'
 #' @param endpoint One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)
 #' @param request_type Must be one of "GET" or "POST" per endpoint documentation
 #' @param key API key (see documentation for which endpoints require authentication)
 #' @param params_list A list of parameter names and values (see documentation for syntax)
 #' @return A JSON object
-#' @export
 #' @examples
 #' manifold_api("/v0/user/ManifoldMarkets")
 #' manifold_api("/v0/me", key = get_manifold_api_key())
 #' manifold_api(endpoint = "/v0/markets", params_list = list(limit = 10, before = "EvIhzcJXwhL0HavaszD7"))
+#' @import httr
+#' @importFrom jsonlite fromJSON
+#' @export
 
 manifold_api <- function(endpoint, request_type = c("GET", "POST"), key = NULL, params_list = NULL) {
 
