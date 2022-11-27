@@ -12,7 +12,7 @@
 
 clean_manifold_content <- function(input){
 
-  if (!inherits(resp,"manifold_api")) {
+  if (!inherits(input,"manifold_api")) {
     stop("Function input should be Manifold API object.", call. = FALSE)
   }
 

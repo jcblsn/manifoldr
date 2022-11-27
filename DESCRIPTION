@@ -9,10 +9,11 @@ BugReports: https://github.com/jcblsn/manifoldr/issues
 Encoding: UTF-8
 Imports: 
     httr,
+    httr2,
     jsonlite,
     purrr,
     janitor,
-    httr2
+    utils
 RoxygenNote: 7.2.1
 Suggests: 
     covr,

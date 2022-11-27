@@ -3,24 +3,24 @@ MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PAC
 
 # endpoints ---------------------------------------------------------------
 
-testthat::test_that("GET /v0/user/[username] works", {
-  resp <- manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GET")
+testthat::test_that("GET /vX/user/[username] works", {
+  resp <- manifold_api(endpoint = paste0("/",v,"/user/ManifoldMarkets"), request_type = "GET")
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/user/by-id/[id] works", {
+testthat::test_that("GET /vX/user/by-id/[id] works", {
   resp <- manifold_api(
-    endpoint = "/v0/user/by-id/IPTOzEqrpkWmEzh6hwvAyY9PqFb2",
+    endpoint = paste0("/",v,"/user/by-id/IPTOzEqrpkWmEzh6hwvAyY9PqFb2"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/me works", {
+testthat::test_that("GET /vX/me works", {
   resp <- manifold_api(
-    endpoint = "/v0/me",
+    endpoint = paste0("/",v,"/me"),
     request_type = "GET",
     key = MANIFOLDR_USER_API_KEY
   )
@@ -28,9 +28,9 @@ testthat::test_that("GET /v0/me works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/groups works", {
+testthat::test_that("GET /vX/groups works", {
   resp <- manifold_api(
-    endpoint = "/v0/groups",
+    endpoint = paste0("/",v,"/groups"),
     request_type = "GET",
     params_list = list(availableToUserId = "true")
   )
@@ -38,36 +38,36 @@ testthat::test_that("GET /v0/groups works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/group/[slug] works", {
+testthat::test_that("GET /vX/group/[slug] works", {
   resp <- manifold_api(
-    endpoint = "/v0/group/manifold-users",
+    endpoint = paste0("/",v,"/group/manifold-users"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/group/by-id/[id] works", {
+testthat::test_that("GET /vX/group/by-id/[id] works", {
   resp <- manifold_api(
-    endpoint = "/v0/group/by-id/uqVbahk6EJpQP9aKuZiX",
+    endpoint = paste0("/",v,"/group/by-id/uqVbahk6EJpQP9aKuZiX"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/group/by-id/[id]/markets works", {
+testthat::test_that("GET /vX/group/by-id/[id]/markets works", {
   resp <- manifold_api(
-    endpoint = "/v0/group/by-id/uqVbahk6EJpQP9aKuZiX/markets",
+    endpoint = paste0("/",v,"/group/by-id/uqVbahk6EJpQP9aKuZiX/markets"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/markets works", {
+testthat::test_that("GET /vX/markets works", {
   resp <- manifold_api(
-    endpoint = "/v0/markets",
+    endpoint = paste0("/",v,"/markets"),
     request_type = "GET",
     params_list = list(limit = 10, before = "pOIULRJ4zbYyk6dYEmzl")
   )
@@ -75,9 +75,9 @@ testthat::test_that("GET /v0/markets works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/market/[marketId] works", {
+testthat::test_that("GET /vX/market/[marketId] works", {
   resp <- manifold_api(
-    endpoint = "/v0/market/pOIULRJ4zbYyk6dYEmzl",
+    endpoint = paste0("/",v,"/market/pOIULRJ4zbYyk6dYEmzl"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
@@ -87,28 +87,28 @@ testthat::test_that("GET /v0/market/[marketId] works", {
 # TODO figure out why bets and comments don't work
 # RESOLVED apparently was removed per changelog
 
-# testthat::test_that("GET /v0/market/[marketId] works with bets and comments", {
+# testthat::test_that("GET /vX/market/[marketId] works with bets and comments", {
 #   resp <- manifold_api(
-#     endpoint = "/v0/market/X1Yz7ipF4zkLuLkHtPeK/bets",
-#     # endpoint = "/v0/bets/X1Yz7ipF4zkLuLkHtPeK",
+#     endpoint = paste0("/",v,"/market/X1Yz7ipF4zkLuLkHtPeK/bets"),
+#     # endpoint = paste0("/",v,"/bets/X1Yz7ipF4zkLuLkHtPeK"),
 #     request_type = "GET"
 #   )
 #   expect_s3_class(resp, class = "manifold_api")
 #   expect_equal(resp$response$status_code, 200)
 # })
 
-testthat::test_that("GET /v0/slug/[marketSlug] works", {
+testthat::test_that("GET /vX/slug/[marketSlug] works", {
   resp <- manifold_api(
-    endpoint = "/v0/slug/will-democrats-lose-their-majoritie",
+    endpoint = paste0("/",v,"/slug/will-democrats-lose-their-majoritie"),
     request_type = "GET"
   )
   expect_s3_class(resp, class = "manifold_api")
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/users works", {
+testthat::test_that("GET /vX/users works", {
   resp <- manifold_api(
-    endpoint = "/v0/users",
+    endpoint = paste0("/",v,"/users"),
     request_type = "GET",
     params_list = list(limit = 10, before = "GIGRbUjZdsd2Rv4Jlmx7GFSPZjj2")
   )
@@ -116,9 +116,9 @@ testthat::test_that("GET /v0/users works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-# testthat::test_that("POST /v0/market works", {
+# testthat::test_that("POST /vX/market works", {
 #   resp <- manifold_api(
-#     endpoint = "/v0/market",
+#     endpoint = paste0("/",v,"/market"),
 #     request_type = "POST",
 #     key = MANIFOLDR_USER_API_KEY,
 #     params_list = list(
@@ -139,9 +139,9 @@ testthat::test_that("GET /v0/users works", {
 # slug will-the-manifoldr-package-function
 # url https://manifold.markets/manifoldr/will-the-manifoldr-package-function
 
-testthat::test_that("POST /v0/bet works", {
+testthat::test_that("POST /vX/bet works", {
   resp <- manifold_api(
-    endpoint = "/v0/bet",
+    endpoint = paste0("/",v,"/bet"),
     request_type = "POST",
     key = MANIFOLDR_USER_API_KEY,
     params_list = list(
@@ -156,9 +156,9 @@ testthat::test_that("POST /v0/bet works", {
 })
 # passed 2022-11-27
 
-testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
+testthat::test_that("POST /vX/market/[marketId]/add-liquidity works", {
   resp <- manifold_api(
-    endpoint = "/v0/market/44Q7XDgbrDR2CyD2d41d/add-liquidity",
+    endpoint = paste0("/",v,"/market/44Q7XDgbrDR2CyD2d41d/add-liquidity"),
     request_type = "POST",
     key = MANIFOLDR_USER_API_KEY,
     params_list = list(
@@ -170,9 +170,9 @@ testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
 })
 # passed 2022-11-27
 
-# testthat::test_that("POST /v0/market/[marketId]/close works", {
+# testthat::test_that("POST /vX/market/[marketId]/close works", {
 #   resp <- manifold_api(
-#     endpoint = "/v0/market/44Q7XDgbrDR2CyD2d41d/close",
+#     endpoint = paste0("/",v,"/market/44Q7XDgbrDR2CyD2d41d/close"),
 #     request_type = "POST",
 #     key = MANIFOLDR_USER_API_KEY
 #     # , params_list = list(
@@ -183,9 +183,9 @@ testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
 #   expect_equal(resp$response$status_code, 200)
 # })
 
-# testthat::test_that("POST /v0/market/[marketId]/resolve works", {
+# testthat::test_that("POST /vX/market/[marketId]/resolve works", {
 #   manifoldr_group_markets <- manifold_api(
-#     endpoint = "/v0/group/by-id/gPyUYrZXv9YfceerIphj/markets",
+#     endpoint = paste0("/",v,"/group/by-id/gPyUYrZXv9YfceerIphj/markets"),
 #     request_type = "GET"
 #   )$content |> clean_manifold_content()
 #
@@ -193,7 +193,7 @@ testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
 #     manifoldr_group_markets[manifoldr_group_markets$created_time == max(manifoldr_group_markets$created_time),]$id
 #
 #   resp <- manifold_api(
-#     endpoint = paste0("/v0/market/",market_id,"/resolve"),
+#     endpoint = paste0("/",v,"/market/",market_id,"/resolve"),
 #     request_type = "POST",
 #     key = MANIFOLDR_USER_API_KEY,
 #     params_list = list(
@@ -204,9 +204,9 @@ testthat::test_that("POST /v0/market/[marketId]/add-liquidity works", {
 #   expect_equal(resp$response$status_code, 200)
 # })
 
-testthat::test_that("POST /v0/market/[marketId]/sell works", {
+testthat::test_that("POST /vX/market/[marketId]/sell works", {
   resp <- manifold_api(
-    endpoint = "/v0/market/44Q7XDgbrDR2CyD2d41d/sell",
+    endpoint = paste0("/",v,"/market/44Q7XDgbrDR2CyD2d41d/sell"),
     request_type = "POST",
     key = MANIFOLDR_USER_API_KEY,
     params_list = list(
@@ -218,9 +218,9 @@ testthat::test_that("POST /v0/market/[marketId]/sell works", {
 })
 # passed 2022-11-27
 
-testthat::test_that("POST /v0/comment works", {
+testthat::test_that("POST /vX/comment works", {
   resp <- manifold_api(
-    endpoint = "/v0/comment",
+    endpoint = paste0("/",v,"/comment"),
     request_type = "POST",
     key = MANIFOLDR_USER_API_KEY,
     params_list = list(
@@ -232,9 +232,9 @@ testthat::test_that("POST /v0/comment works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/comments works", {
+testthat::test_that("GET /vX/comments works", {
   resp <- manifold_api(
-    endpoint = "/v0/comments",
+    endpoint = paste0("/",v,"/comments"),
     request_type = "GET",
     params_list = list(
       contractId = "44Q7XDgbrDR2CyD2d41d"
@@ -244,9 +244,9 @@ testthat::test_that("GET /v0/comments works", {
   expect_equal(resp$response$status_code, 200)
 })
 
-testthat::test_that("GET /v0/bets works", {
+testthat::test_that("GET /vX/bets works", {
   resp <- manifold_api(
-    endpoint = "/v0/bets",
+    endpoint = paste0("/",v,"/bets"),
     request_type = "GET",
     params_list = list(
       contractId = "44Q7XDgbrDR2CyD2d41d"
@@ -259,12 +259,32 @@ testthat::test_that("GET /v0/bets works", {
 # manifold_api ------------------------------------------------------------
 
 testthat::test_that("request type check works", {
-  testthat::expect_error(manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GFT"))
+  testthat::expect_error(
+    manifold_api(endpoint = paste0("/",v,"/user/ManifoldMarkets"), request_type = "GFT"), # need GET or POST
+    "should be one of"
+  )
+})
+
+testthat::test_that("403 error works", {
+  testthat::expect_error(
+    manifoldr::manifold_api(endpoint = paste0("/",v,"/me"), request_type = "GET"), # no key
+    "Status code: 403"
+  )
+})
+
+testthat::test_that("non-200 error works", {
+  testthat::expect_error(
+    manifold_api(
+      endpoint = paste0("/",v,"/markets"),
+      request_type = "GET",
+      params_list = list(limit = T, before = T) # bad params
+    ),
+    "Manifold API request failed")
 })
 
 testthat::test_that("print method works", {
-  resp <- manifold_api(endpoint = "/v0/user/ManifoldMarkets", request_type = "GET")
-  resp
-  expect_no_error(resp)
+  resp <- manifold_api(endpoint = paste0("/",v,"/user/ManifoldMarkets"), request_type = "GET")
+  resp$content
+  expect_no_error(resp$content)
 })
 

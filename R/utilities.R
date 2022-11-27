@@ -1,3 +1,4 @@
+v <- "v0"
 ua <- httr::user_agent("http://github.com/eliason-j/manifoldr")
 
 # NOTE: doesn't appear to be a limit yet? update later

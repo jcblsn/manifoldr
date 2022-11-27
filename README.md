@@ -15,8 +15,8 @@ coverage](https://codecov.io/gh/jcblsn/manifoldr/branch/main/graph/badge.svg)](h
 The goal of `manifoldr` is to streamline interactions between R users
 and the [Manifold Markets](https://manifold.markets/home) API. The
 Manifold Markets API documentation can be found
-[here](https://docs.manifold.markets/api#post-v0marketmarketidresolve).
-All endpoints are supported as of November 2022.
+[here](https://docs.manifold.markets/api). All endpoints are supported
+as of November 2022.
 
 <!-- apis in r https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
 <!-- secret management https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management -->

@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of `manifoldr` is to streamline interactions between R users and the [Manifold Markets](https://manifold.markets/home) API. The Manifold Markets API documentation can be found [here](https://docs.manifold.markets/api#post-v0marketmarketidresolve). All endpoints are supported as of November 2022.
+The goal of `manifoldr` is to streamline interactions between R users and the [Manifold Markets](https://manifold.markets/home) API. The Manifold Markets API documentation can be found [here](https://docs.manifold.markets/api). All endpoints are supported as of November 2022.
 
 <!-- apis in r https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html -->
 

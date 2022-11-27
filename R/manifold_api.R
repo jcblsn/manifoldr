@@ -24,6 +24,7 @@
 #' )
 #' @import httr httr2
 #' @importFrom jsonlite fromJSON
+#' @importFrom utils str
 #' @export
 
 manifold_api <- function(endpoint, request_type = c("GET", "POST"), key = NULL, params_list = NULL) {
