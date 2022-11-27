@@ -1,4 +1,8 @@
 
+secret_scrambled <- "mngT0rXXiwoF2RhqXZmlgcGn778wfF5ne-0SwoXUO7Q4G8uJHOnYM7s0io0h9sFB5VwHig"
+MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PACKAGE_KEY")
+Sys.setenv(MANIFOLD_API_KEY = MANIFOLDR_USER_API_KEY)
+
 # c("id", "created_time", "name", "username","url", "avatar_url", "bio", "website",
 #   "twitter_handle", "discord_handle", "balance", "total_deposits","profit_cached_all_time",
 #   "profit_cached_daily", "profit_cached_monthly", "profit_cached_weekly")
