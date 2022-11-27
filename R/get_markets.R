@@ -1,5 +1,8 @@
 #' get_markets()
 #'
+#' @description
+#' `r lifecycle::badge("stable")`
+#'
 #' Retrieve recent markets from most to least recent.
 #'
 #' @param n_markets Number of markets to retrieve

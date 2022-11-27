@@ -1,5 +1,8 @@
 #' Storing and referencing your Manifold Markets API Key
 #'
+#' @description
+#' `r lifecycle::badge("stable")`
+#'
 #' @return API key as string
 #' @export
 #' @examples

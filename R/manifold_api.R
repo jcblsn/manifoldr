@@ -1,6 +1,9 @@
 #' Manifold API
 #'
-#' @description Interact with the Manifold Markets API
+#' @description
+#' `r lifecycle::badge("stable")`
+#'
+#' Interact with the Manifold Markets API
 #'
 #' @param endpoint One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)
 #' @param request_type Must be one of "GET" or "POST" per endpoint documentation

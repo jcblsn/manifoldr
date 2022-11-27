@@ -10,7 +10,7 @@ get_manifold_api_key()
 API key as string
 }
 \description{
-Storing and referencing your Manifold Markets API Key
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \examples{
 get_manifold_api_key()

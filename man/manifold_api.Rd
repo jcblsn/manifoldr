@@ -12,7 +12,7 @@ manifold_api(
 )
 }
 \arguments{
-\item{endpoint}{One of the endpoints listed in Manifold's [documentation](https://docs.manifold.markets/api)}
+\item{endpoint}{One of the endpoints listed in Manifold's \href{https://docs.manifold.markets/api}{documentation}}
 
 \item{request_type}{Must be one of "GET" or "POST" per endpoint documentation}
 
@@ -24,6 +24,8 @@ manifold_api(
 A JSON object
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+
 Interact with the Manifold Markets API
 }
 \examples{

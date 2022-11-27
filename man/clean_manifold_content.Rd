@@ -13,6 +13,8 @@ clean_manifold_content(input)
 A tibble
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 An optional convenience function to format certain results from the Manifold API
 }
 \examples{

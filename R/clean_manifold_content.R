@@ -1,6 +1,9 @@
 #' Convert API response to a data frame
 #'
-#' @description An optional convenience function to format certain results from the Manifold API
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
+#' An optional convenience function to format certain results from the Manifold API
 #'
 #' @param input Output from manifold_api() or other convenience function. Output from queries regarding groups, comments, or bets are not currently compatible with this function.
 #' @return A tibble
@@ -11,6 +14,7 @@
 #' @importFrom dplyr mutate_all case_when
 #' @importFrom stringr str_starts regex
 #' @importFrom tibble as_tibble
+#' @importFrom lubridate as_datetime
 #' @export
 
 clean_manifold_content <- function(input){
