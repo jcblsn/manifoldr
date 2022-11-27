@@ -10,7 +10,9 @@ Encoding: UTF-8
 Imports: 
     curl,
     httr,
-    jsonlite
+    jsonlite,
+    purrr,
+    janitor
 RoxygenNote: 7.2.1
 Suggests: 
     covr,
