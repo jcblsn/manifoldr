@@ -1,5 +1,6 @@
 secret_scrambled <- "mngT0rXXiwoF2RhqXZmlgcGn778wfF5ne-0SwoXUO7Q4G8uJHOnYM7s0io0h9sFB5VwHig"
 MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PACKAGE_KEY")
+Sys.setenv(MANIFOLD_API_KEY = MANIFOLDR_USER_API_KEY)
 
 v <- "v0"
 ua <- httr::user_agent("http://github.com/eliason-j/manifoldr")

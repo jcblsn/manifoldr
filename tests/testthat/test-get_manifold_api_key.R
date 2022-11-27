@@ -1,5 +1,4 @@
-secret_scrambled <- "mngT0rXXiwoF2RhqXZmlgcGn778wfF5ne-0SwoXUO7Q4G8uJHOnYM7s0io0h9sFB5VwHig"
-MANIFOLDR_USER_API_KEY <- httr2::secret_decrypt(secret_scrambled, "MANIFOLDR_PACKAGE_KEY")
+Sys.setenv(MANIFOLD_API_KEY = "")
 
 testthat::test_that("function produces error when key not set", {
   testthat::expect_error(get_manifold_api_key())

@@ -22,7 +22,7 @@ testthat::test_that("GET /vX/me returns tibble", {
   resp <- manifold_api(
     endpoint = paste0("/",v,"/me"),
     request_type = "GET",
-    key = MANIFOLDR_USER_API_KEY
+    key = get_manifold_api_key()
   ) |>
     clean_manifold_content()
   expect_s3_class(resp, "tbl_df")
