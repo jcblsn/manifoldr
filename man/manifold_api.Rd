@@ -21,7 +21,7 @@ manifold_api(
 \item{params_list}{A list of parameter names and values (see documentation for syntax)}
 }
 \value{
-A JSON object
+Manifold API object
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}

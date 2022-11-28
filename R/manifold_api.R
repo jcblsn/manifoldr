@@ -9,7 +9,7 @@
 #' @param request_type Must be one of "GET" or "POST" per endpoint documentation
 #' @param key API key (see documentation for which endpoints require authentication)
 #' @param params_list A list of parameter names and values (see documentation for syntax)
-#' @return A JSON object
+#' @return Manifold API object
 #' @examples
 #' manifold_api(
 #'   endpoint = "/v0/user/ManifoldMarkets",
