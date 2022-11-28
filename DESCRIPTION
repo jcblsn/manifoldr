@@ -17,6 +17,7 @@ Imports:
     stringr,
     dplyr,
     tibble,
+    tidyselect,
     lubridate,
     lifecycle
 RoxygenNote: 7.2.1

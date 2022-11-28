@@ -11,7 +11,8 @@
 #' clean_manifold_content(manifold_api("/v0/user/ManifoldMarkets", request_type = "GET"))
 #' @importFrom purrr map_dfr pluck
 #' @importFrom janitor clean_names
-#' @importFrom dplyr mutate_all case_when any_of
+#' @importFrom dplyr mutate_all case_when
+#' @importFrom tidyselect any_of
 #' @importFrom stringr str_starts regex
 #' @importFrom tibble as_tibble
 #' @importFrom lubridate as_datetime
@@ -66,7 +67,7 @@ clean_manifold_content <- function(input){
       function(x) stringr::str_sub(x, 1, 10) |> as.numeric() |> lubridate::as_datetime()
     ) |>
     dplyr::mutate_at(
-      dplyr::vars(dplyr::any_of(num_cols)), as.numeric
+      dplyr::vars(tidyselect::any_of(num_cols)), as.numeric
     )
 
   return(out)
