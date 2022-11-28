@@ -65,22 +65,12 @@ submit_market_create <- function(
   params_list <- params_list[lengths(params_list) != 0] # remove null elements
 
   manifold_api(
-    endpoint = paste0("/",v,"/market"),
+    endpoint = paste0("/v0/market"),
     request_type = "POST",
     key = mm_key,
     params_list = params_list
   )
 }
-
-resp <- submit_market_create(
-  mm_outcome_type = "BINARY",
-  mm_question = "Will the manifoldr package functions work correctly?",
-  mm_description_md = "This market exists to test the package functions for [manifoldr](https://github.com/jcblsn/manifoldr). For testing purposes only.",
-  mm_close_time = 1679558804490,
-  mm_visibility = "unlisted",
-  mm_group_id = "gPyUYrZXv9YfceerIphj",
-  mm_initial_prob = 50,
-)
 
 # TODO add documentation, error checking, tests
 # usethis::use_test("submit_market_create.R")
