@@ -6,7 +6,7 @@
 #' Retrieve recent markets from most to least recent.
 #'
 #' @param n_markets Number of markets to retrieve
-#' @return A JSON object
+#' @return Manifold API object
 #' @examples
 #' get_markets(5)
 #' @export
