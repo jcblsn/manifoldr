@@ -71,6 +71,17 @@ manifoldr::get_markets(n_markets = 3) |>
   manifoldr::clean_manifold_content()
 ```
 
+```{r, echo = F}
+# todo
+# submit_bet
+# submit_bet_cancel
+# submit_bet_sell
+# submit_market_create
+# submit_market_close
+# submit_market_resolve
+# submit_market_add_liquidity
+```
+
 ## Code of Conduct
 
 Please note that the `manifoldr` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
