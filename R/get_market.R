@@ -1,15 +1,15 @@
-#' get_market()
+#' get_market
 #'
 #' @description
 #' `r lifecycle::badge("stable")`
 #'
 #' Retrieve a specific market
 #'
-#' @param market_id_or_slug A slug or ID associated with a single market
+#' @param market_id_or_slug A slug or ID string associated with a single market
 #' @return Manifold API object
 #' @examples
-#' get_market("pOIULRJ4zbYyk6dYEmzl")
-#' get_market("will-democrats-lose-their-majoritie")
+#' get_market(market_id_or_slug="pOIULRJ4zbYyk6dYEmzl")
+#' get_market(market_id_or_slug="will-democrats-lose-their-majoritie")
 #' @importFrom stringr str_length str_detect
 #' @export
 

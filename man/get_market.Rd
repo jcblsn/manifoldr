@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_market.R
 \name{get_market}
 \alias{get_market}
-\title{get_market()}
+\title{get_market}
 \usage{
 get_market(market_id_or_slug)
 }
 \arguments{
-\item{market_id_or_slug}{A slug or ID associated with a single market}
+\item{market_id_or_slug}{A slug or ID string associated with a single market}
 }
 \value{
 Manifold API object
@@ -18,6 +18,6 @@ Manifold API object
 Retrieve a specific market
 }
 \examples{
-get_market("pOIULRJ4zbYyk6dYEmzl")
-get_market("will-democrats-lose-their-majoritie")
+get_market(market_id_or_slug="pOIULRJ4zbYyk6dYEmzl")
+get_market(market_id_or_slug="will-democrats-lose-their-majoritie")
 }
