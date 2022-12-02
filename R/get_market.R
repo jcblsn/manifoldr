@@ -31,7 +31,7 @@ get_market <- function(market_id_or_slug){
     )
   } else {
     resp <- manifold_api(
-      endpoint = paste0("/",v,"/slug/will-democrats-lose-their-majoritie"),
+      endpoint = paste0("/",v,"/slug/",market_id_or_slug),
       request_type = "GET"
     )
   }

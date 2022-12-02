@@ -50,7 +50,7 @@ submit_market_create <- function(
   params_list <- list(
     outcomeType = test_param_given(mm_outcome_type),
     question = test_param_given(mm_question),
-    description = test_param_given(mm_description_md),
+    descriptionMarkdown = test_param_given(mm_description_md),
     closeTime = test_param_given(mm_close_time),
     visibility = test_param_given(mm_visibility),
     groupId = test_param_given(mm_group_id),
