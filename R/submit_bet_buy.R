@@ -1,4 +1,4 @@
-#' submit_bet
+#' submit_bet_buy
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
@@ -9,7 +9,7 @@
 #' @return Manifold API object
 #' @export
 
-submit_bet <- function(
+submit_bet_buy <- function(
     mm_key = get_manifold_api_key(),
     mm_amt,
     mm_market_id = NULL,
@@ -54,4 +54,4 @@ submit_bet <- function(
 }
 
 # TODO add documentation, error checking, tests
-# usethis::use_test("submit_bet.R")
+usethis::use_test("submit_bet_buy.R")
