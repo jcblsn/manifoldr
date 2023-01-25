@@ -10,7 +10,7 @@ submit_market_create(
   mm_question,
   mm_description_md,
   mm_close_time,
-  mm_visibility,
+  mm_visibility = c("public", "unlisted"),
   mm_group_id,
   mm_initial_prob,
   mm_min,
@@ -31,7 +31,7 @@ submit_market_create(
 
 \item{mm_close_time}{Optional. The time at which the market will close, represented as milliseconds since the epoch. Defaults to 7 days from now.}
 
-\item{mm_visibility}{Optional. One of public (default) or \code{unlisted}. Controls whether the market is shown on the homepage.}
+\item{mm_visibility}{Optional. One of \code{public} (default) or \code{unlisted}. Controls whether the market is shown on the homepage.}
 
 \item{mm_group_id}{Optional. A group to create this market under.}
 
